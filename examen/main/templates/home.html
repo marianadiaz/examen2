@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>TEST 2, web programming </title>
+</head>
+<body bgcolor="#FF99ff"> 
+	<div>
+		test 2
+	</div>
+	<div>
+		WEB PROGRAMMING
+		<BR/> 
+		Zobimes & Tweets
+	</div>
+	<hr/>
+	{% for zombie in zombies %}
+	<div>
+		<h3>{{ zombie.name }} - ({{ zombie.tweets.count }}) tweets</h3>
+		<a href="{% url show_zombie zombie.pk %}">See more</a>
+		<p>Graveyard: {{ zombie.graveyard }}
+		<div><h4>Graveyard - {{ zombie.graveyard }}</h4></div>
+		<div class='tweets'>
+			{% for tweet in zombie.tweets.all %}
+			<div>Tweets: {{ tweet.status }}</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+	
+	{% for tweet in Tweets %}
+		<div>
+			<h3>hola - {{ tweet.status }}</h3>
+		</div>
+	{% endfor %}
+</body>
+
+</html>

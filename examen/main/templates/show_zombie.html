@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>{{ zombie.name }} - Zombieess</title>
+</head>
+<body bgcolor="#FFCCCC">
+	<a href="{% url home %}">Home</a>
+	<h1>{{ zombie.name }} {{ tweets.zombie.count }}</h1>
+	<p>Graveyard : {{ zombie.graveyard }}</p>
+	<p>{% for tweet in zombie.tweets.all %}
+		<div>tweet - {{ tweet.pk }} : {{tweet.status}}</div>
+		{% endfor %}
+	</p>
+</body>
+
+</html>
